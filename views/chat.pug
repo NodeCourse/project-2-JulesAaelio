@@ -1,3 +1,14 @@
 extends base.pug
+block links
+    link(rel="stylesheet" href='/css/chat.css')
+block content
+    div.messages-wrapper.card
+        div.messages.card-content
+            for message in messages
+                include message
+    div.new-message
+        input(name='message')#new-message
+        a.btn#new-message-btn Envoyer
 block scripts
     script(src='/scripts/socket-init.js')
+    script(src='/scripts/chat.js')
